@@ -7,7 +7,7 @@ class Program
     static void Main(string[] args)
     {
         IBasicArray[] aarray = new IBasicArray[3];
-        aarray[0] = new Array();
+        aarray[0] = new Array<int>();
         aarray[1] = new Matrix();
         aarray[2] = new StepArray();
         foreach (BasicArray el in aarray)
@@ -18,7 +18,7 @@ class Program
             el.Print();
             Console.WriteLine("Average: " + el.Average());
         }
-        Array array = new Array();
+        Array<int> array = new Array<int>();
         array.Random();
         array.Print();
         int[] mas = array.GetUniqueMas();

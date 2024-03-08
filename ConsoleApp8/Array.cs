@@ -10,7 +10,7 @@ where T : struct
     T[] mas;
     public Array(int n = 3) : base(n)
     {
-        if (typeof(T) == typeof(int) || typeof(T) == typeof(float) ||typeof(T) == typeof(bool))
+        if (typeof(T) == typeof(int) || typeof(T) == typeof(double) ||typeof(T) == typeof(bool))
         {
             mas = new T[number_of_cells];
         }
@@ -46,27 +46,37 @@ where T : struct
         Console.WriteLine("Enter number of elements ");
         int n = Convert.ToInt32(Console.ReadLine());
         mas = new T[n];
-        if (typeof(T) == typeof(int))
+        Random rnd = new Random();
+        for (int i = 0; i < mas.Length; i++)
         {
-            Random rnd = new Random();
-            for (int i = 0; i < mas.Length; i++)
+            if (typeof(T) == typeof(int))
             {
+                
                 mas[i] = (T)(object)rnd.Next(-100, 100);
             }
-        }
-        else if (typeof(T) == typeof(string))
-        {
-            for (int i = 0; i < mas.Length; i++)
+            else if (typeof(T) == typeof(string))
             {
                 mas[i] = (T)(object)GenerateRandomString(10);
             }
+            else if (typeof(T) == typeof(double))
+            {
+                mas[i] = (T)(object)NextDouble(-100.0, 100.0);
+            }
+            else if (typeof(T) == typeof(bool))
+            {
+                mas[i] = (T)(object)rnd.Next(0, 1);
+            }
             
         }
-        else if (typeof(T) == typeof(float))
-        {
-
-        }
+        
     }
+    public double NextDouble( double MinValue, double MaxValue)
+    {
+        Random random = new Random();
+        return random.NextDouble() * (MaxValue - MinValue) + MinValue;
+    }
+
+
     string GenerateRandomString(int length)
     {
         const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
