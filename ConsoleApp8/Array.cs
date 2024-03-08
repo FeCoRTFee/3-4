@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 class Array<T>  : BasicArray
-where T : struct
 {
     
     T[] mas;

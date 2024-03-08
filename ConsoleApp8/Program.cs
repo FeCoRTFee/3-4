@@ -7,8 +7,8 @@ class Program
     static void Main(string[] args)
     {
         IBasicArray[] aarray = new IBasicArray[3];
-        aarray[0] = new Array<int>();
-        aarray[1] = new Matrix();
+        aarray[0] = new Array<string>();
+        aarray[1] = new Matrix<string>();
         aarray[2] = new StepArray();
         foreach (BasicArray el in aarray)
         {
@@ -16,17 +16,11 @@ class Program
             if (b == 0) el.Random();
             else if (b == 1) el.Input();
             el.Print();
-            Console.WriteLine("Average: " + el.Average());
         }
-        Array<int> array = new Array<int>();
+        Array<string> array = new Array<string>();
         array.Random();
         array.Print();
-        int[] mas = array.GetUniqueMas();
-        foreach (var item in mas)
-        {
-            Console.WriteLine(item);
-        }
-        Matrix matrix = new Matrix();
+        Matrix<string> matrix = new Matrix<string>(); 
         matrix.Random();
         matrix.Print();
         matrix.ShowReverse();
